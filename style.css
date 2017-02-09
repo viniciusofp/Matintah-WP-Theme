@@ -128,7 +128,7 @@ img.custom-logo {
       height: 100%; }
     #home-header .wrapper #bonecas-1 {
       background: url("img/bonecas-1.png") 50% 0 no-repeat fixed;
-      background-size: auto 100%;
+      background-size: auto 110%;
       z-index: 2; }
     #home-header .wrapper #triangles {
       background: url("img/triangles.png") 50% 0 no-repeat fixed;

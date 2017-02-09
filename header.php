@@ -50,13 +50,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/shop/">Loja</a></li>
+        <li><a href="/loja/">Loja</a></li>
         <li><a href="#">Currículo</a></li>
         <li><a href="#">Oficinas</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/my-account/">Minha Conta</a></li>
-        <li><a href="/cart/">Carrinho</a></li>
+        <li><a href="/minha-conta/">Minha Conta</a></li>
+        <li><a href="/carrinho/">Carrinho</a></li>
         <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></span></a></li>
         <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></span></a></li>
         <li><a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
