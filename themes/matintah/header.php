@@ -57,11 +57,21 @@ if (true ) {
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      
+    <?php
+    if ( has_nav_menu( 'primary' ) ) {
+      $args = array(
+        'theme_location' => 'primary',
+        'menu_class' => 'nav navbar-nav'
+      );
+      wp_nav_menu( $args );
+    }
+    ?>
+<!--       <ul class="nav navbar-nav">
         <li><a href="/loja/">Loja</a></li>
         <li><a href="#">Currículo</a></li>
         <li><a href="#">Oficinas</a></li>
-      </ul>
+      </ul> -->
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/minha-conta/"><i class="fa fa-user-circle-o" aria-hidden="true"></i>&ensp;Minha Conta</a></li>
         <?php if (! is_cart() && ! is_checkout()) {

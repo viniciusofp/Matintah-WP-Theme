@@ -27,14 +27,29 @@ function wpmu_theme_support() {
 add_action( 'after_setup_theme', 'wpmu_theme_support' );
 
 
+// Registrar menus
+add_action( 'after_setup_theme', 'register_my_menu' );
+function register_my_menu() {
+  register_nav_menu( 'primary', __( 'Header Left Menu', 'header-left-menu' ) );
+}
 
 // Registrar áreas de widgets
 function theme_widgets_init() {
+  // Front Page 1
+ register_sidebar( array (
+ 'name' => 'Front Page 1',
+ 'id' => 'front_page_widget_area_1',
+ 'before_widget' => '',
+ 'after_widget' => "",
+ 'before_title' => '<h3 class="widget-title">',
+ 'after_title' => '</h3>',
+  ) );
+
  // Área 1
  register_sidebar( array (
- 'name' => 'Primary Widget Area',
+ 'name' => 'Sidebar Cart',
  'id' => 'primary_widget_area',
- 'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+ 'before_widget' => '<li id="%1$s" class="widget-container %2$s"><div id="mini-cart-close"><i class="fa fa-times" aria-hidden="true"></i></div>',
  'after_widget' => "</li>",
  'before_title' => '<h3 class="widget-title">',
  'after_title' => '</h3>',
@@ -46,10 +61,12 @@ function theme_widgets_init() {
  'id' => 'secondary_widget_area',
  'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
  'after_widget' => "</li>",
- 'before_title' => '<h3 class="widget-title">',
- 'after_title' => '</h3>',
+ 'before_title' => '<div class="col-md-12"><h3>',
+ 'after_title' => '</h3></div>',
   ) );
 } // end theme_widgets_init
+
+
 
 $preset_widgets = array (
  'primary_widget_area'  => array( 'search', 'pages', 'categories', 'archives' ),

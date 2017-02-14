@@ -15,10 +15,11 @@
 ?>
 <div id="footer-bar" class="container-fluid">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div>
-				<p class="text-center">This is my footer</p>
-			</div>	
+		<div class="col-md-12">
+			<h2 class="typed"><span class="element"></span></h2>
+			<div class="spacer"></div>
+			<div class="spacer"></div>
+			<div class="spacer"></div>
 		</div>
 	</div>
 </div>
@@ -90,10 +91,11 @@
 
  	$(function(){
 	  $(".element").typed({
-	    strings: ["consciente.", "sustentável.", "negra.",  "popular."],
-	    typeSpeed: 20,
-        backDelay: 1500,
-        backSpeed: 50,
+	    strings: ["Muito prazer,<br> meu nome é <span style='color: green'>Matintah Pereira</span>."],
+	    typeSpeed: 50,
+	    startDelay: 300,
+        backDelay: 500,
+        backSpeed: 36,
 	    loop: true
 	  });
 	});
