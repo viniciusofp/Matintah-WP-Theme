@@ -23,13 +23,16 @@
 	</div>
 </div>
 		
-
 <?php wp_footer(); ?>
 <!-- Latest compiled and minified JavaScript -->
+
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/wp-content/themes/matintah/js/jquery.scrolly.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.scrolly.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/typed.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-<script type="text/javascript">
+<script async type="text/javascript">
+
 	$('.parallax').scrolly({bgParallax: true});
 
 	var waypoint = new Waypoint({
@@ -37,18 +40,62 @@
 	  handler: function(direction) {
 	    $('nav.navbar.homenav').toggleClass('onTop');
 	  },
-	  offset: -50 
+	  offset: 50 
 	});
 
 	var lastScrollTop = 0;
 	$(window).scroll(function(event){
 	   var st = $(this).scrollTop();
-	   if (st > lastScrollTop){
-	       $('nav.navbar').css('margin-top', '-120px');
+	   if (st > lastScrollTop && lastScrollTop > 115){
+	       $('nav.navbar').css('margin-top', '-115px');
 	   } else {
 	       $('nav.navbar').css('margin-top', '0');
 	   }
 	   lastScrollTop = st;
+	});
+
+	$('#fullpage').click(function() {
+		$('.collapse').attr('aria-expanded', 'false').removeClass('in');
+
+	})
+
+
+
+	$('.mini-cart-trigger, .button.product_type_simple.add_to_cart_button').click(function() {
+		// $('#sidebar-cart').css('right', '0px');
+		$("body").animate({ scrollTop: 0 }, 0);
+		$('#fade').addClass('on');
+		$('body').css({
+			'height' : '100vh',
+			'overflow': 'hidden',
+	   		'transform': 'translate3d(-320px,0,0)'
+   		});
+   		$('#sidebar-cart').css({
+   			'transform': 'rotateY(0deg) translate(0,-115px)'
+   		});
+	});
+
+	$('#mini-cart-close, #fade').click(function() {
+		// $('#sidebar-cart').css('right', '-320px');
+		$('#fade').removeClass('on');
+		$('body').css({
+			'height' : 'initial',
+			'overflow': 'scroll',
+	   		'transform': 'none'
+   		});
+   		$('#sidebar-cart').css({
+   			'transform': 'rotateY(90deg) translate(0,-115px);'
+   		});
+	});
+
+ 	$(function(){
+	  $(".element").typed({
+	    strings: ["consciente.", "sustentável.", "negra.",  "popular."],
+	    typeSpeed: 20,
+        backDelay: 1500,
+        backSpeed: 50,
+	    loop: true
+	  });
 	});
 
 </script>

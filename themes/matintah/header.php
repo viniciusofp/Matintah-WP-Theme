@@ -18,13 +18,13 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="<?php echo get_template_directory_uri(); ?>/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 <?php wp_head(); ?>
 
 <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
 
 </head>
@@ -36,12 +36,12 @@
 
 <?php
 $classTop = '';
-if ( is_front_page() && is_home() || is_shop() ) {
+if (true ) {
   $classTop = 'onTop homenav';
 }
 ?>
 
-<body ng-app='myApp'>
+<body>
 <nav class="navbar navbar-fixed-top <?php echo $classTop; ?>">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -63,12 +63,31 @@ if ( is_front_page() && is_home() || is_shop() ) {
         <li><a href="#">Oficinas</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/minha-conta/">Minha Conta</a></li>
-        <li><a href="/carrinho/">Carrinho</a></li>
-        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></span></a></li>
+        <li><a href="/minha-conta/"><i class="fa fa-user-circle-o" aria-hidden="true"></i>&ensp;Minha Conta</a></li>
+        <?php if (! is_cart() && ! is_checkout()) {
+          echo '<li class="mini-cart-trigger"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&ensp;Carrinho&ensp;<span>' . sprintf ( _n( '%d', '%d', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ) .'</span></a></li>';
+
+
+        }
+        ?>
         <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></span></a></li>
-        <li><a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
       </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<div id="sidebar-wrapper">
+  <div id="fade"></div>
+  <div id="sidebar-cart">
+      <?php
+      /**
+       * woocommerce_sidebar hook.
+       *
+       * @hooked woocommerce_get_sidebar - 10
+       */
+      do_action( 'woocommerce_sidebar' );
+    ?>        
+  </div>
+
+</div>

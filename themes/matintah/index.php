@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div id="fullpage">
+<div id="fullpage" class="scene_element scene_element--fadein">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">

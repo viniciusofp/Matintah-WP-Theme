@@ -48,8 +48,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 			do_action( 'woocommerce_before_single_product_summary' );
 		?>	
 	</div>
-	<div class="col-sm-5 col-md-4">
-
+	<div id="single-product-summary" class="col-sm-5 col-md-4">
+		<?php
+			/**
+			 * woocommerce_before_main_content hook.
+			 *
+			 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+			 * @hooked woocommerce_breadcrumb - 20
+			 */
+			do_action( 'woocommerce_before_main_content' );
+		?>
 		<?php
 			/**
 			 * woocommerce_single_product_summary hook.
@@ -65,6 +73,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			do_action( 'woocommerce_single_product_summary' );
 		?>
 
+
+
+		<meta itemprop="url" content="<?php the_permalink(); ?>" />	
+	</div>
+	<div class="col-md-12">
 		<div class="spacer"></div>
 		<?php
 			/**
@@ -76,8 +89,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 */
 			do_action( 'woocommerce_after_single_product_summary' );
 		?>
-
-		<meta itemprop="url" content="<?php the_permalink(); ?>" />	
 	</div>
 	
 

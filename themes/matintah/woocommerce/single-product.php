@@ -21,22 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-<div id="fullpage">
+<div id="fullpage" class="scene_element scene_element--fadein">
 	<div class="container woocommerce">
 		<div class="row">
-			<div class="spacer"></div>
-			<div class="spacer"></div>
-			<div class="spacer"></div>
 			<div class="col-md-12">
-				<?php
-					/**
-					 * woocommerce_before_main_content hook.
-					 *
-					 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-					 * @hooked woocommerce_breadcrumb - 20
-					 */
-					do_action( 'woocommerce_before_main_content' );
-				?>
+
 			</div>
 
 					<?php while ( have_posts() ) : the_post(); ?>

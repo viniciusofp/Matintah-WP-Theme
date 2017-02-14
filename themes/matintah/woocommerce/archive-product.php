@@ -21,34 +21,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-<div id="fullpage">
-	<section>
+<div id="fullpage" class="scene_element scene_element--fadein">
+	<div id="shop-header">
+		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+			<h1 class="page-title">
+				<?php woocommerce_page_title(); ?>
+			</h1>
 
-			<div style="height: 100%; width: 100%; background: url('http://matintah.com/wp-content/uploads/2016/12/matintah_testes-7.jpg') 50% 0 no-repeat fixed; background-size: 100% auto" class="parallax" data-velocity="-2">
-				
-			</div>
+		<?php endif; ?>
+	</div>
 
-
-	</section>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="spacer"></div>
-			<?php
-				/**
-				 * woocommerce_before_main_content hook.
-				 *
-				 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-				 * @hooked woocommerce_breadcrumb - 20
-				 */
-				do_action( 'woocommerce_before_main_content' );
-			?>
-
-				<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-
-					<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
-
-				<?php endif; ?>
+				<?php
+					/**
+					 * woocommerce_before_main_content hook.
+					 *
+					 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+					 * @hooked woocommerce_breadcrumb - 20
+					 */
+					do_action( 'woocommerce_before_main_content' );
+				?>
 
 				<?php
 					/**
@@ -57,54 +52,50 @@ get_header( 'shop' ); ?>
 					 * @hooked woocommerce_taxonomy_archive_description - 10
 					 * @hooked woocommerce_product_archive_description - 10
 					 */
-					do_action( 'woocommerce_archive_description' );
+					//do_action( 'woocommerce_archive_description' );
 				?>
-			</div>
 
-
-				<?php if ( have_posts() ) : ?>
-					<div class="col-md-12">
-						<div class="spacer"></div>
-						<?php
-							/**
-							 * woocommerce_before_shop_loop hook.
-							 *
-							 * @hooked woocommerce_result_count - 20
-							 * @hooked woocommerce_catalog_ordering - 30
-							 */
-							do_action( 'woocommerce_before_shop_loop' );
-						?>
-						<div class="spacer"></div>
-					</div>
-
-					<?php woocommerce_product_loop_start(); ?>
-
-						<?php woocommerce_product_subcategories(); ?>
-
-						<?php while ( have_posts() ) : the_post(); ?>
-							
-							<div class="col-sm-4">
-								<?php wc_get_template_part( 'content', 'product' ); ?>
-							</div>
-
-						<?php endwhile; // end of the loop. ?>
-
-					<?php woocommerce_product_loop_end(); ?>
-
+			<?php if ( have_posts() ) : ?>
 					<?php
 						/**
-						 * woocommerce_after_shop_loop hook.
+						 * woocommerce_before_shop_loop hook.
 						 *
-						 * @hooked woocommerce_pagination - 10
+						 * @hooked woocommerce_result_count - 20
+						 * @hooked woocommerce_catalog_ordering - 30
 						 */
-						do_action( 'woocommerce_after_shop_loop' );
+						do_action( 'woocommerce_before_shop_loop' );
 					?>
+					<div class="spacer"></div>
+				</div>
+				<div class="col-md-12">
+				<?php woocommerce_product_loop_start(); ?>
 
-				<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+					<?php woocommerce_product_subcategories(); ?>
 
-					<?php wc_get_template( 'loop/no-products-found.php' ); ?>
+					<?php while ( have_posts() ) : the_post(); ?>
+						
+						<div class="col-xs-12 col-sm-3">
+							<?php wc_get_template_part( 'content', 'product' ); ?>
+						</div>
 
-				<?php endif; ?>
+					<?php endwhile; // end of the loop. ?>
+
+				<?php woocommerce_product_loop_end(); ?>
+
+				<?php
+					/**
+					 * woocommerce_after_shop_loop hook.
+					 *
+					 * @hooked woocommerce_pagination - 10
+					 */
+					do_action( 'woocommerce_after_shop_loop' );
+				?>
+
+			<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+
+				<?php wc_get_template( 'loop/no-products-found.php' ); ?>
+
+			<?php endif; ?>
 
 			<?php
 				/**
