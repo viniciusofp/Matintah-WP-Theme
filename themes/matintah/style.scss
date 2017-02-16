@@ -9,7 +9,7 @@ Text Domain: matintah
 */
 // GLOBAL
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Bowlby+One');
 
 $cor1: rgba(141, 179,121, 1);
 $shade: rgba(0,0,0,0.2);
@@ -51,6 +51,10 @@ select {
 .spacer {
   height: 30px;
   clear: both
+}
+
+.clearfix {
+  clear: both;
 }
 
 
@@ -306,7 +310,7 @@ img.custom-logo {
       position: absolute;
       width: 100%;
       height: 100%;
-    }
+      }
     #bonecas-1 {
       background: url('img/bonecas-1.png') 50% 0 no-repeat fixed;
       background-size: auto 110%;
@@ -314,9 +318,9 @@ img.custom-logo {
     }
     #triangles {
       background: url('img/triangles.png') 50% 0 no-repeat fixed;
-      background-size: contain;
+      background-size: 100% auto;
 
-      z-index: 3;
+      z-index: 4;
     }
     #fadetriangles  {
       background: url('img/fadetriangles.png') 50% 100% repeat-x fixed;
@@ -326,13 +330,14 @@ img.custom-logo {
 }
 
 .typed {
-  font-weight: 400;
-  color: #666;
+  margin: 0;
+  z-index: 3;
+  color: #fff;
   text-align: center;
   position: absolute;
   left: 50%;
-  bottom: 30px;
-  transform: translate(-50%, 0);
+  bottom: 50%;
+  transform: translate(-50%, -50%);
 }
 #front_page_widget {
   .widget-title {
@@ -488,7 +493,8 @@ span.onsale,
   height: 400px;
   width: 100%;
   background-image: url('img/fundo-1.jpg');
-  background-size: cover;
+  background-size: auto 530px;
+  background-attachment: fixed;
   .page-title {
     position: absolute;
     top: 50%;
@@ -496,6 +502,8 @@ span.onsale,
     transform: translate(-50%, -50%);
     margin: 0;
     color: white;
+    font-size: 6em;
+    font-family: 'Bowlby One', cursive;
   }
 }
 
@@ -563,18 +571,77 @@ li.product.type-product{
 
 // PRODUCT PAGE
 
+.woocommerce div.product div.images {
+  .thumbnails.columns-3 {
+    width: 65px;
+    float: left;
+    padding-top: 0;
+
+    a {
+      width: 100%;
+      background-color: black;
+
+      img {
+        opacity: 0.5;
+        transition: 0.3s;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  img.attachment-shop_large.wp-post-image {
+    float: right;
+    max-width: calc(100% - 80px);
+    max-height: 100vh;
+    width: auto;
+  }
+}
+
 #single-product-summary {
+  height: 100vh;
+  overflow: scroll;
   text-align: center;
-    h1.product_title.entry-title {
+  h1.product_title.entry-title {
     font-weight: 600;
     font-size: 30px;
   }
-  span.sku_wrapper {
+  span.sku_wrapper,
+  span.posted_in {
       display: none;
   }
   .woocommerce-product-rating {
     display: none;
   }
+  ul.tabs.wc-tabs li {
+
+    font-size: 14px
+  }
+  h2.woocommerce-Reviews-title {
+    font-size: 20px;
+    margin-bottom: 45px;
+  }
+  .woocommerce-Tabs-panel.woocommerce-Tabs-panel--description.panel.entry-content.wc-tab,
+  .woocommerce-Tabs-panel.woocommerce-Tabs-panel--additional_information.panel.entry-content.wc-tab,
+  .woocommerce-Tabs-panel.woocommerce-Tabs-panel--review.panel.entry-content.wc-tab {
+    h2.woocommerce-Reviews-title,
+    h2 {
+      font-size: 20px;
+      margin-bottom: 30px;
+      margin-top: 10px;
+
+    }
+    p {
+      color: #666;
+      font-size: 14px;
+    }
+
+  }
+
+  p.comment-notes {
+    font-size: 13px;
+  }
+
 }
 
 

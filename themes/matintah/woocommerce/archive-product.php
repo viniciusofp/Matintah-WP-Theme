@@ -67,7 +67,6 @@ get_header( 'shop' ); ?>
 					?>
 					<div class="spacer"></div>
 				</div>
-				<div class="col-md-12">
 				<?php woocommerce_product_loop_start(); ?>
 
 					<?php woocommerce_product_subcategories(); ?>
@@ -80,6 +79,7 @@ get_header( 'shop' ); ?>
 
 					<?php endwhile; // end of the loop. ?>
 
+				<div class="col-md-12">
 				<?php woocommerce_product_loop_end(); ?>
 
 				<?php

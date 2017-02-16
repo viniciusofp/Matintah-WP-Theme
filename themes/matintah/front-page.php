@@ -17,10 +17,26 @@
 
 get_header(); ?>
 <div id="fullpage" class="scene_element scene_element--fadein">
+	<section id="home-header" class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 wrapper">
+				<h1 class="typed"><span class="element"></span></h1>
+				<div class="meta">
+ 				</div>
+				<div >
+					<div id="triangles" class="parallax" data-velocity=".3" data-fit=""></div>
+					<div id="bonecas-1" class="parallax" data-velocity="0"></div>
+					<div id="fadetriangles" class="parallax"></div>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
 	<section class="container">
 		<div class="row">
-			<div style="height: calc(100vh - 115px);" class="col-md-12">
-				<svg style="height: 90%; width: 100%; padding: 30px; margin-top: -30px;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 284.3 399.9" style="enable-background:new 0 0 284.3 399.9;" xml:space="preserve">
+			<div style="height: calc(100vh - 115px);" class="col-md-5">
+				<svg style="height: 90%; width: 100%; padding: 30px; " version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 284.3 399.9" style="enable-background:new 0 0 284.3 399.9;" xml:space="preserve">
 					<style type="text/css">
 						.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#010202;}
 						.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FEEB17;}
@@ -132,23 +148,15 @@ get_header(); ?>
 					</g>
 				</svg>
 
-				<h2 class="typed"><span class="element"></span></h2>
+				
 				<div class="spacer"></div>
 				<div class="spacer"></div>
 				<div class="spacer"></div>
 			</div>
-		</div>
-	</section>
-	<section id="home-header" class="container-fluid">
-		<div class="row">
-			<div class="col-md-12 wrapper">
-				<div class="meta">
-<!-- 					<h1>Muito prazer, meu nome é Matintah Pereira.</h1>
- -->				</div>
-				<div id="triangles" class="parallax" data-velocity=".3" data-fit=""></div>
-				<div id="bonecas-1" class="parallax" data-velocity="0"></div>
-				<div id="fadetriangles" class="parallax"></div>
-
+			<div class="col-md-7">
+				<div id="square"></div>
+				<h1>Salve, salve.</h1>
+				<p class="lead">Mesmo assim, as entrevistas de Combi apontaram por que bebida e drogas são cada vez mais rejeitadas por essa geração. Duas décadas de educação antidrogas, antifumo e anti-álcool hardcore tiveram seu efeito, aponta. "A maior influência para os garotos são outros garotos. Não é estranho dizer 'Não uso drogas nem bebo'. É algo perfeitamente aceitável agora."</p>
 			</div>
 		</div>
 	</section>

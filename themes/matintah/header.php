@@ -36,10 +36,12 @@
 
 <?php
 $classTop = '';
-if (true ) {
+if (! is_product() ) {
   $classTop = 'onTop homenav';
 }
 ?>
+
+
 
 <body>
 <nav class="navbar navbar-fixed-top <?php echo $classTop; ?>">

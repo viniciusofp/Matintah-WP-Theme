@@ -91,7 +91,7 @@
 
  	$(function(){
 	  $(".element").typed({
-	    strings: ["Muito prazer,<br> meu nome é <span style='color: green'>Matintah Pereira</span>."],
+	    strings: ["Muito prazer,<br> meu nome é <span style='color: #ffe807'>Matintah Pereira</span>."],
 	    typeSpeed: 50,
 	    startDelay: 300,
         backDelay: 500,

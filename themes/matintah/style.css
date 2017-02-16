@@ -8,7 +8,7 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: matintah
 */
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Bowlby+One");
 body {
   padding-top: 115px;
   min-height: 100vh;
@@ -40,6 +40,9 @@ select {
 
 .spacer {
   height: 30px;
+  clear: both; }
+
+.clearfix {
   clear: both; }
 
 #footer-bar {
@@ -253,19 +256,20 @@ img.custom-logo {
       z-index: 2; }
     #home-header .wrapper #triangles {
       background: url("img/triangles.png") 50% 0 no-repeat fixed;
-      background-size: contain;
-      z-index: 3; }
+      background-size: 100% auto;
+      z-index: 4; }
     #home-header .wrapper #fadetriangles {
       background: url("img/fadetriangles.png") 50% 100% repeat-x fixed; }
 
 .typed {
-  font-weight: 400;
-  color: #666;
+  margin: 0;
+  z-index: 3;
+  color: #fff;
   text-align: center;
   position: absolute;
   left: 50%;
-  bottom: 30px;
-  transform: translate(-50%, 0); }
+  bottom: 50%;
+  transform: translate(-50%, -50%); }
 
 #front_page_widget .widget-title {
   display: none; }
@@ -381,14 +385,17 @@ span.onsale,
   height: 400px;
   width: 100%;
   background-image: url("img/fundo-1.jpg");
-  background-size: cover; }
+  background-size: auto 530px;
+  background-attachment: fixed; }
   #shop-header .page-title {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
-    color: white; }
+    color: white;
+    font-size: 6em;
+    font-family: 'Bowlby One', cursive; }
 
 nav.woocommerce-breadcrumb {
   display: inline-block; }
@@ -432,14 +439,56 @@ li.product.type-product:hover a.button.product_type_variable.add_to_cart_button 
 li.product.type-product:hover span.price {
   opacity: 0; }
 
+.woocommerce div.product div.images .thumbnails.columns-3 {
+  width: 65px;
+  float: left;
+  padding-top: 0; }
+  .woocommerce div.product div.images .thumbnails.columns-3 a {
+    width: 100%;
+    background-color: black; }
+    .woocommerce div.product div.images .thumbnails.columns-3 a img {
+      opacity: 0.5;
+      transition: 0.3s; }
+      .woocommerce div.product div.images .thumbnails.columns-3 a img:hover {
+        opacity: 1; }
+.woocommerce div.product div.images img.attachment-shop_large.wp-post-image {
+  float: right;
+  max-width: calc(100% - 80px);
+  max-height: 100vh;
+  width: auto; }
+
 #single-product-summary {
+  height: 100vh;
+  overflow: scroll;
   text-align: center; }
   #single-product-summary h1.product_title.entry-title {
     font-weight: 600;
     font-size: 30px; }
-  #single-product-summary span.sku_wrapper {
+  #single-product-summary span.sku_wrapper,
+  #single-product-summary span.posted_in {
     display: none; }
   #single-product-summary .woocommerce-product-rating {
     display: none; }
+  #single-product-summary ul.tabs.wc-tabs li {
+    font-size: 14px; }
+  #single-product-summary h2.woocommerce-Reviews-title {
+    font-size: 20px;
+    margin-bottom: 45px; }
+  #single-product-summary .woocommerce-Tabs-panel.woocommerce-Tabs-panel--description.panel.entry-content.wc-tab h2.woocommerce-Reviews-title,
+  #single-product-summary .woocommerce-Tabs-panel.woocommerce-Tabs-panel--description.panel.entry-content.wc-tab h2,
+  #single-product-summary .woocommerce-Tabs-panel.woocommerce-Tabs-panel--additional_information.panel.entry-content.wc-tab h2.woocommerce-Reviews-title,
+  #single-product-summary .woocommerce-Tabs-panel.woocommerce-Tabs-panel--additional_information.panel.entry-content.wc-tab h2,
+  #single-product-summary .woocommerce-Tabs-panel.woocommerce-Tabs-panel--review.panel.entry-content.wc-tab h2.woocommerce-Reviews-title,
+  #single-product-summary .woocommerce-Tabs-panel.woocommerce-Tabs-panel--review.panel.entry-content.wc-tab h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-top: 10px; }
+  #single-product-summary .woocommerce-Tabs-panel.woocommerce-Tabs-panel--description.panel.entry-content.wc-tab p,
+  #single-product-summary .woocommerce-Tabs-panel.woocommerce-Tabs-panel--additional_information.panel.entry-content.wc-tab p,
+  #single-product-summary .woocommerce-Tabs-panel.woocommerce-Tabs-panel--review.panel.entry-content.wc-tab p {
+    color: #666;
+    font-size: 14px; }
+  #single-product-summary p.comment-notes {
+    font-size: 13px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -37,6 +37,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="col-md-12">
+		<?php
+			/**
+			 * woocommerce_before_main_content hook.
+			 *
+			 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+			 * @hooked woocommerce_breadcrumb - 20
+			 */
+			do_action( 'woocommerce_before_main_content' );
+		?>
+	</div>
 	<div class="col-sm-7 col-md-8">
 		<?php
 			/**
@@ -49,15 +60,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>	
 	</div>
 	<div id="single-product-summary" class="col-sm-5 col-md-4">
-		<?php
-			/**
-			 * woocommerce_before_main_content hook.
-			 *
-			 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-			 * @hooked woocommerce_breadcrumb - 20
-			 */
-			do_action( 'woocommerce_before_main_content' );
-		?>
 		<?php
 			/**
 			 * woocommerce_single_product_summary hook.
@@ -76,9 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 		<meta itemprop="url" content="<?php the_permalink(); ?>" />	
-	</div>
-	<div class="col-md-12">
-		<div class="spacer"></div>
+	
 		<?php
 			/**
 			 * woocommerce_after_single_product_summary hook.
@@ -89,6 +89,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 */
 			do_action( 'woocommerce_after_single_product_summary' );
 		?>
+	</div>
+	<div class="col-md-12 clearfix">
+		<div class="spacer"></div>
+		
 	</div>
 	
 
