@@ -35,6 +35,35 @@ function register_my_menu() {
 
 // Registrar áreas de widgets
 function theme_widgets_init() {
+
+  // Oficinas
+ register_sidebar( array (
+ 'name' => 'Oficinas',
+ 'id' => 'oficinas_widget',
+ 'before_widget' => '<li>',
+ 'after_widget' => "</li>",
+ 'before_title' => '<h1 class="widget-title">',
+ 'after_title' => '</h1>',
+  ) );
+  // Exposições
+ register_sidebar( array (
+ 'name' => 'Exposições',
+ 'id' => 'expo_widget',
+ 'before_widget' => '<li>',
+ 'after_widget' => "</li>",
+ 'before_title' => '<h1 class="widget-title">',
+ 'after_title' => '</h1>',
+  ) );
+  // Eventos
+ register_sidebar( array (
+ 'name' => 'Eventos',
+ 'id' => 'eventos_widget',
+ 'before_widget' => '<li>',
+ 'after_widget' => "</li>",
+ 'before_title' => '<h1 class="widget-title">',
+ 'after_title' => '</h1>',
+  ) );
+
   // Front Page 1
  register_sidebar( array (
  'name' => 'Front Page 1',
@@ -160,4 +189,13 @@ function woocommerce_category_image() {
     }
   }
 }
+
+
+
+
+
+
+
+
+
 ?>

@@ -16,10 +16,7 @@
 <div id="footer-bar" class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<h2 class="typed"><span class="element"></span></h2>
-			<div class="spacer"></div>
-			<div class="spacer"></div>
-			<div class="spacer"></div>
+
 		</div>
 	</div>
 </div>

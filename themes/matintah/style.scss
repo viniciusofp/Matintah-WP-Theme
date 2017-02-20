@@ -9,9 +9,30 @@ Text Domain: matintah
 */
 // GLOBAL
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Bowlby+One');
+@font-face {
+    font-family: 'Odudo';
+    src: url('fonts/odudosoft-bold-webfont.woff');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Odudo';
+    src: url('fonts/odudosoft-semibold-webfont.woff');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Odudo';
+    src: url('fonts/odudosoft-light-webfont.woff');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Fairwater Script';
+    src: url('fonts/Fairwater-Script-Regular.woff');
+}
 
-$cor1: rgba(141, 179,121, 1);
+
+$cor1: #38b680;
+$gray: #86888a;
+$yellow: #ffc709;
 $shade: rgba(0,0,0,0.2);
 
 body {
@@ -20,22 +41,34 @@ body {
   transition: 0.5s cubic-bezier(.11,.26,.26,.88);
   color: black;
 	font-size: 16px;
-	font-family: 'Source Sans Pro', serif;
+	font-family: 'Odudo', serif;
   @media all and (max-width: 767px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 700;
+	font-family: 'Odudo', sans-serif;
+	font-weight: bold;
   color: inherit;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  font-size: 2.5em;
 }
 
 a, a:hover, a:focus, a:visited {
   color: inherit;
   text-decoration: none;
   margin-bottom: 2px;
+}
+
+strong {
+  font-weight: 600;
 }
 
 img {
@@ -48,6 +81,13 @@ select {
     background: transparent;
 }
 
+button {
+  max-width: 100%;
+  text-align: center;
+  border: none;
+  padding: 10px 20px;
+}
+
 .spacer {
   height: 30px;
   clear: both
@@ -55,6 +95,11 @@ select {
 
 .clearfix {
   clear: both;
+}
+
+.chapeu {
+  font-family: 'Fairwater Script';
+  font-size: 0.6em;
 }
 
 
@@ -283,62 +328,82 @@ img.custom-logo {
 // HOMEPAGE
 
 #home-header{
-  height: 100vh;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8db379+0,7da570+100 */
-  background: #8db379; /* Old browsers */
-  background: -moz-radial-gradient(center, ellipse cover,  #8db379 0%, #7da570 100%); /* FF3.6-15 */
-  background: -webkit-radial-gradient(center, ellipse cover,  #8db379 0%,#7da570 100%); /* Chrome10-25,Safari5.1-6 */
-  background: radial-gradient(ellipse at center,  #8db379 0%,#7da570 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8db379', endColorstr='#7da570',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  padding: 100px 0 130px;
+  background: $yellow;
+  background-repeat: no-repeat;
+  background-position: right -10%;
+  background-size: auto 120%;
+  h1 {
+    color: white;
+    text-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+    .chapeu {
+      font-size: 0.6em;
+      color: black;
+      text-shadow: none;
+    }
+  }
+  p {
+  }
+  button {
+    min-width: 300px;
+    margin: 5px;
+    background-color: $yellow;
+    border: 1px solid black;
+    &:first-of-type {
+      background-color: #2c3889;
+      color: white;
+    }
+  }
 
-  background-size: cover;
-  overflow: hidden;
-  .wrapper  {
-    position: relative;
-    height: 100%;
-    height: 100vh;
-    .meta {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      z-index: 9;
-    }
-    .parallax {
-      left: 0;
-      top: 0;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      }
-    #bonecas-1 {
-      background: url('img/bonecas-1.png') 50% 0 no-repeat fixed;
-      background-size: auto 110%;
-      z-index: 2;
-    }
-    #triangles {
-      background: url('img/triangles.png') 50% 0 no-repeat fixed;
-      background-size: 100% auto;
+}
 
-      z-index: 4;
-    }
-    #fadetriangles  {
-      background: url('img/fadetriangles.png') 50% 100% repeat-x fixed;
-     // background-size: contain;
+#aromas {
+  min-height: 500px;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+  .meta {
+    padding: 15px 30px 30px 30px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    background: white;
+    h2 {
+      margin-top: 0;
     }
   }
 }
 
-.typed {
-  margin: 0;
-  z-index: 3;
-  color: #fff;
-  text-align: center;
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%, -50%);
+#amuletos {
+  padding: 100px 0 130px;
+  background: #ec606a;
+  .meta {
+    max-width: 480px;
+    margin: 0 auto;
+    h2 {
+      margin-top: 0;
+      color: white;
+      text-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+      .chapeu {
+        color: black;
+        text-shadow: none;
+      }
+    }
+  }
 }
+
+#section {
+  padding: 30px 0;
+  .meta {
+    max-width: 480px;
+    margin: 0 auto;
+    border: 3px solid #75b4bb;
+    h2 {
+      margin-top: 15px;
+    }
+  }
+}
+
 #front_page_widget {
   .widget-title {
     display: none;
@@ -644,6 +709,81 @@ li.product.type-product{
 
 }
 
+
+// A ARTISTA
+
+#artista-header {
+  background: $cor1;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  margin-bottom: 50px;
+  .chapeu {
+    font-size: 30px;
+    color: #005035;
+  }
+  h1  {
+    margin-top: 0;
+    color: white;
+  }
+  button {
+    background: #323537;
+    color: white;
+    margin: 0 13px 0 0;
+  }
+}
+
+.cv-title   {
+  border-bottom: 5px solid $yellow;
+  margin-top: 0;
+  .chapeu {
+    font-size: 0.6em;
+    color: $gray;
+  }
+}
+
+ul.widget-cv {
+  padding: 5px 0 5px 80px;
+  li {
+    list-style-type: none;
+    position: relative;
+    padding: 15px 0;
+    p {
+      margin: 0 0 7px;
+    }
+    .ano {
+      position: absolute;
+      left: -70px;
+      top: 13px;
+      color: $gray;
+    }
+    .mes {
+      text-transform: uppercase;
+      strong {
+        color: $gray;
+      }
+    }
+    &::before {
+      content: '';
+      width: 10px;
+      background: $gray;
+      height: 10px;
+      position: absolute;
+      transform: translate(-20px, 5px);
+      border-radius: 100%;
+    }
+    & div::before   {
+      content: '';
+      width: 2px;
+      background: $gray;
+      height: 100%;
+      position: absolute;
+      transform: translate(-16px, 15px);
+    }
+    &:last-child div::before  {
+      display: none;
+    }
+  }
+}
 
 
 
