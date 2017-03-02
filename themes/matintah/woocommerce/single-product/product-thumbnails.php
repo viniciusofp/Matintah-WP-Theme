@@ -28,7 +28,15 @@ if ( $attachment_ids ) {
 	$loop 		= 0;
 	$columns 	= apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
 	?>
-	<div class="thumbnails <?php echo 'columns-' . $columns; ?>"><?php
+	<div class="cycle-slideshow thumbnails <?php echo 'columns-' . $columns; ?>"
+
+	    data-cycle-prev="#prev"
+	    data-cycle-next="#next"
+        data-cycle-fx="scrollHorz"
+	    data-cycle-pause-on-hover="true"
+	    data-cycle-speed="500"
+    	data-cycle-slides="> a">
+    	<?php
 
 		foreach ( $attachment_ids as $attachment_id ) {
 
@@ -66,6 +74,15 @@ if ( $attachment_ids ) {
 			$loop++;
 		}
 
-	?></div>
+		?>
+	</div>
+	<?php
+	if ($loop > 1) : ?>
+	<div id="product-slider-controls">
+	    <a href='' id="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> 
+	    <a href='' id="next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+	</div>
+	<?php
+	endif;?>
 	<?php
 }

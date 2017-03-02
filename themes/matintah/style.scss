@@ -36,14 +36,15 @@ $yellow: #ffc709;
 $shade: rgba(0,0,0,0.2);
 
 body {
+  max-width: 100vw;
   padding-top: 115px;
-  min-height: 100vh;
+  overflow-x: hidden;
   transition: 0.5s cubic-bezier(.11,.26,.26,.88);
   color: black;
-	font-size: 16px;
+	font-size: 17px;
 	font-family: 'Odudo', serif;
   @media all and (max-width: 767px) {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -86,6 +87,7 @@ button {
   text-align: center;
   border: none;
   padding: 10px 20px;
+  transition: 0.2s;
 }
 
 .spacer {
@@ -107,6 +109,24 @@ button {
 // FOOTER
 #footer-bar {
   margin-top: 50px;
+  #logo-footer {
+    max-width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+@for $i from 0 through 7 {
+
+    .st#{$i} {
+      opacity:0;
+      transition: ((7-$i) * (7-$i)) * 0.05 + 0.3s ease-in;
+    }
+    .st#{$i}.visible {
+      opacity:1;
+    }
+
 }
 
 // CART SIDEBAR
@@ -327,11 +347,29 @@ img.custom-logo {
 
 // HOMEPAGE
 
+#fullpage.home {
+  position: relative;
+  @media all and (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+#triangles  {
+  background: url('img/triangles.png');
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-position: 50% 0px;
+  top: 0;
+  pointer-events:none
+}
+
 #home-header{
   padding: 100px 0 130px;
   background: $yellow;
   background-repeat: no-repeat;
-  background-position: right -10%;
+  background-position: 110% -10%;
   background-size: auto 120%;
   h1 {
     color: white;
@@ -344,14 +382,20 @@ img.custom-logo {
   }
   p {
   }
+  a:first-of-type button {
+    background-color: #2c3889;
+    color: white;
+    // &:hover {
+    //   background-color: #ef8225;
+    // }
+  }
   button {
     min-width: 300px;
     margin: 5px;
     background-color: $yellow;
     border: 1px solid black;
-    &:first-of-type {
-      background-color: #2c3889;
-      color: white;
+    &:hover {
+      background-color: #ef8225;
     }
   }
 
@@ -366,10 +410,13 @@ img.custom-logo {
     padding: 15px 30px 30px 30px;
     margin-top: 100px;
     margin-bottom: 50px;
-    border: 1px solid black;
+    border: 1px solid #7e6273;
     background: white;
     h2 {
       margin-top: 0;
+      .chapeu {
+        color: #7e6273;
+      }
     }
   }
 }
@@ -385,7 +432,7 @@ img.custom-logo {
       color: white;
       text-shadow: 0px 0px 3px rgba(0,0,0,0.3);
       .chapeu {
-        color: black;
+        color: #a03139;
         text-shadow: none;
       }
     }
@@ -393,6 +440,7 @@ img.custom-logo {
 }
 
 #section {
+  background: #dbdddc;
   padding: 30px 0;
   .meta {
     max-width: 480px;
@@ -404,36 +452,32 @@ img.custom-logo {
   }
 }
 
-#front_page_widget {
-  .widget-title {
-    display: none;
+#insta_widget {
+  h2 {
+    color: $gray;
   }
-  .product_list_widget {
-    padding-left: 0;
-    li {
-      list-style: none;
-      padding: 0;
-      span.product-title {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        font-size: 20px;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-      .woocommerce-Price-amount {
-        display: none;
-      }
-      img {
-        width: 100%;
-        opacity: 0.3;
-        transition: 0.3s;
-        &:hover {
-          opacity: 1;
-        }
-      }
+}
+
+#artista {
+  background: #75b4bb;
+  color: white;
+  .col-md-6:first-of-type {
+
+  }
+  h2 {
+    .chapeu   {
+      color: #3f6b70; 
+    }
+  }
+  .row > div.col-sm-4 {
+    padding-bottom: 100px;
+    padding-top: 100px;
+  }
+  button {
+    background: #12272c;
+    color: white;
+    &:hover {
+      background: #3f6b70; 
     }
   }
 }
@@ -553,123 +597,159 @@ span.onsale,
 
 // SHOP PAGE
 
-#shop-header {
-  position: relative;
-  height: 400px;
-  width: 100%;
-  background-image: url('img/fundo-1.jpg');
-  background-size: auto 530px;
-  background-attachment: fixed;
-  .page-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    color: white;
-    font-size: 6em;
-    font-family: 'Bowlby One', cursive;
-  }
-}
-
-nav.woocommerce-breadcrumb {
-    display: inline-block;
-}
-
-p.woocommerce-result-count {
-  display: none;
-}
-
-form.woocommerce-ordering {
-    float: right;
-
-  select.orderby {
-    border: none;
-    font-weight: 600;
-    background: transparent;
-  }
-}
-
-li.product.type-product{
-  .woocommerce-LoopProduct-link{
-    text-align: center;
-    h3 {
-      font-size: 16px;
+#fullpage.shop {
+  #bread {
       text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    span.price  {
-      display: block;
-      color: #888888;
-      font-weight: 600;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-    .star-rating {
-      display: none;
+      margin-top: 30px;
+      background-color: $cor1;
+      color: $yellow;
+      padding: 20px;
+      a:hover {
+        background-color: $yellow;
+        color: $cor1;
+      }
+  }
+  background: $yellow;
+  .page-title {
+    .chapeu {
+      color: $cor1;
     }
   }
-
-  a.button.product_type_variable.add_to_cart_button {
-    text-align: center;
+  .woocommerce-Price-amount.amount  {
+    color: #ef8225;
     font-weight: 600;
-    color: $cor1;
-    font-size: 14px;
-    display: block;
-    margin-top: -22px;
-    opacity: 0;
-    transition: 0.3s;
   }
-  &:hover{
-    a.button.product_type_variable.add_to_cart_button {
-      opacity: 1;
+  li.product {
+    padding: 10px;
+    overflow: hidden;
+    // &:hover {
+    //   outline: 2px solid $cor1;
+    // }
+    img.attachment-shop_catalog {
+      height: 250px;
     }
-    span.price {
-      opacity: 0;
+
+    &:hover h3:after {
+        transform: translate(-50%, 50%);
+        opacity: 1;
     }
-  } 
+    h3 {
+      font-size: 1.2em;
+      &:after {
+        content: 'Quero essa!';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-150%, 50%);
+        transform-origin: center;
+        background-color: #ffa809;
+        font-size: 12px;
+        text-transform: uppercase;
+        padding: 12px;
+        margin-top: -12px;
+        transition: 0.2s ease-out;
+        opacity: 0;
+        box-shadow: 0 0 3px rgba(0,0,0,0.3);
+      }
+    }
+  }
 }
 
+.products img {
+    width: auto;
+    height: 300px;
+}
 
+// OFICINAS
+.the-content h2 {
+  display: inline-block;
+  border-bottom: 4px solid #cf4440;
+  margin-bottom: 15px;
+}
 
+img.alignright {
+    float: right;
+    max-width: 50%;
+    height: auto;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+img.alignleft {
+    float: left;
+    max-width: 50%;
+    height: auto;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
 
 // PRODUCT PAGE
 
 .woocommerce div.product div.images {
-  .thumbnails.columns-3 {
-    width: 65px;
-    float: left;
-    padding-top: 0;
 
+  div.thumbnails {
+    height: 100vh;
+    max-height: 500px;
     a {
       width: 100%;
-      background-color: black;
-
-      img {
-        opacity: 0.5;
-        transition: 0.3s;
-        &:hover {
-          opacity: 1;
-        }
-      }
+      top: 50% !important;
     }
   }
-  img.attachment-shop_large.wp-post-image {
-    float: right;
-    max-width: calc(100% - 80px);
-    max-height: 100vh;
+  img {
     width: auto;
+    max-height: 500px !important;
+    transform: translate(0, -50%);
+    margin: auto;
+  }
+
+  .woocommerce-main-image {
+    position: absolute;
+    left: 30px;
+    top: 15px;
+    width: 120px !important;
+    padding: 15px;
+    z-index: 999999;
+  }
+}
+
+#product-slider-controls {
+  a   {
+    font-size: 46px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 999999;
+  }
+  #prev {
+    left: 30px;
+  }
+  #next {
+    right: 30px;
   }
 }
 
 #single-product-summary {
-  height: 100vh;
-  overflow: scroll;
-  text-align: center;
+  text-align: left;
   h1.product_title.entry-title {
-    font-weight: 600;
-    font-size: 30px;
+    &::before {
+      content: 'Matintah';
+      font-family: 'Fairwater Script';
+      padding: 5px;
+      font-size: 0.7em;
+      display: block
+    }
+    font-size: 1.5em;
+    &::after {
+      content: 'Produto feito à mão: apresenta variações';
+      background-color: $yellow;
+      padding: 5px;
+      font-size: 14px;
+      display: block;
+      font-weight: lighter;
+      max-width: 280px;
+      margin-top: 5px;
+    }
   }
   span.sku_wrapper,
   span.posted_in {

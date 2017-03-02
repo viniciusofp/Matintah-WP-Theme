@@ -533,7 +533,8 @@ if (  ! function_exists( 'woocommerce_template_loop_product_title' ) ) {
 	 * Show the product title in the product loop. By default this is an H3.
 	 */
 	function woocommerce_template_loop_product_title() {
-		echo '<h3>' . get_the_title() . '</h3>';
+		echo '<h3>' . get_the_title()  . '</h3>';
+		echo '<p>' . get_the_excerpt() . '</p>';
 	}
 }
 if (  ! function_exists( 'woocommerce_template_loop_category_title' ) ) {
@@ -547,8 +548,8 @@ if (  ! function_exists( 'woocommerce_template_loop_category_title' ) ) {
 			<?php
 				echo $category->name;
 
-				if ( $category->count > 0 )
-					echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count">(' . $category->count . ')</mark>', $category );
+				// if ( $category->count > 0 )
+				//	echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count">(' . $category->count . ')</mark>', $category );
 			?>
 		</h3>
 		<?php

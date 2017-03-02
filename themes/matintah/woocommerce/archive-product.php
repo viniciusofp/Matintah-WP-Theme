@@ -21,21 +21,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-<div id="fullpage" class="scene_element scene_element--fadein">
-	<div id="shop-header">
-		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-			<h1 class="page-title">
-				<?php woocommerce_page_title(); ?>
-			</h1>
+<div id="fullpage" class="shop scene_element scene_element--fadein text-center">
+<!-- 	<div id="shop-header">
+		
+	</div> -->
 
-		<?php endif; ?>
-	</div>
-
-	<div class="container">
+	<div id="main-shop" class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="spacer"></div>
+				<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+						
+					<?php
+					if (is_shop()) : ?>
+
+						<h1 class="page-title">
+							<span class="chapeu">Monte sua Matintah</span><br>
+							Escolha suas raízes
+						</h1>
+						<p>Primeiro você decide como será o estilo e a história de sua boneca.</p>
+
+					<?php 
+					elseif (is_product_category()) : ?>
+						<h5 id="bread" >Você escolheu a raíz <span style="color: #fff"><?php woocommerce_page_title(); ?></span><br><br><a href="/loja"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a></h5>
+						<h1 class="page-title">
+							<span class="chapeu">Monte sua Matintah</span><br>
+							Escolha um suporte
+						</h1>
+						<p>Agora defina o tamanho e estrutura de sua boneca. <br class="hidden-xs">Com exceção da tradicional, todas se sustentam em pé.</p>
+					<?php
+					endif; 
+					//woocommerce_page_title();
+					?> 
+					
+				<?php endif; ?>
 				<?php
+				if (false) {
 					/**
 					 * woocommerce_before_main_content hook.
 					 *
@@ -43,6 +63,8 @@ get_header( 'shop' ); ?>
 					 * @hooked woocommerce_breadcrumb - 20
 					 */
 					do_action( 'woocommerce_before_main_content' );
+				}
+					
 				?>
 
 				<?php
@@ -52,7 +74,7 @@ get_header( 'shop' ); ?>
 					 * @hooked woocommerce_taxonomy_archive_description - 10
 					 * @hooked woocommerce_product_archive_description - 10
 					 */
-					//do_action( 'woocommerce_archive_description' );
+					// do_action( 'woocommerce_archive_description' );
 				?>
 
 			<?php if ( have_posts() ) : ?>
@@ -63,7 +85,7 @@ get_header( 'shop' ); ?>
 						 * @hooked woocommerce_result_count - 20
 						 * @hooked woocommerce_catalog_ordering - 30
 						 */
-						do_action( 'woocommerce_before_shop_loop' );
+						// do_action( 'woocommerce_before_shop_loop' );
 					?>
 					<div class="spacer"></div>
 				</div>
@@ -115,6 +137,8 @@ get_header( 'shop' ); ?>
 				do_action( 'woocommerce_sidebar' );
 			?>		
 			</div>
+			<div class="spacer"></div>
+			<div class="spacer"></div>
 		</div>
 	</div>
 </div>

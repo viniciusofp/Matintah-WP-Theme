@@ -740,12 +740,12 @@
          * @param   {object}    event
          */
         bindPrefetchHandlers = function ($element) {
-            		
+                
           if (options.anchors && options.prefetch) {
             $element.find(options.anchors).not(options.prefetchBlacklist).on(options.prefetchOn, null, hoverAnchor);
           }
         },
-		
+    
         /**
          * Binds all events and inits functionality
          * @param   {object}    event

@@ -15,6 +15,14 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js no-svg">
 <head>
+<title><?php bloginfo('name'); ?><?php wp_title(); ?></title>
+<meta name="description" content="<?php if ( is_single() ) {
+        single_post_title('', true); 
+    } else {
+        bloginfo('name'); echo " - "; bloginfo('description');
+    }
+    ?>" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
@@ -75,14 +83,15 @@ if (! is_product() ) {
         <li><a href="#">Oficinas</a></li>
       </ul> -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/minha-conta/"><i class="fa fa-user-circle-o" aria-hidden="true"></i>&ensp;Minha Conta</a></li>
+        <li><a href="/minha-conta/"><i class="fa fa-user-o" aria-hidden="true"></i>
+&ensp;Minha Conta</a></li>
         <?php if (! is_cart() && ! is_checkout()) {
           echo '<li class="mini-cart-trigger"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&ensp;Carrinho&ensp;<span>' . sprintf ( _n( '%d', '%d', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ) .'</span></a></li>';
 
 
         }
         ?>
-        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></span></a></li>
+<!--         <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></span></a></li> -->
       </ul>
 
     </div><!-- /.navbar-collapse -->
