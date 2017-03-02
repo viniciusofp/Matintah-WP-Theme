@@ -224,6 +224,13 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 );
 
 
 
+// Activate WordPress Maintenance Mode
+function wp_maintenance_mode(){
+    if(!current_user_can('edit_themes') || !is_user_logged_in()){
+        wp_die(file_get_contents(get_template_directory_uri() . '/maintenance.php'));
+    }
+}
+add_action('get_header', 'wp_maintenance_mode');
 
 
 ?>
